@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liste des stagiaires</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Gestion des stagiaires</h1>
+      <h2>Formulaire d’ajout</h2>
+
+      <form>
+        <div class="form-row">
+          <div class="field">
+            <label for="id">ID</label>
+            <input type="number" id="txtid" name="id" placeholder="Entrer l'identifiant" />
+            <span class="error">Veuillez saisir un identifiant valide.</span>
+          </div>
+
+          <div class="field">
+            <label for="nom">Nom</label>
+            <input type="text" id="txtnom" name="nom" placeholder="Entrer le nom" />
+            <span class="error">Le nom est obligatoire.</span>
+          </div>
+
+          <div class="field">
+            <label for="prenom">Prénom</label>
+            <input type="text" id="txtprenom" name="prenom" placeholder="Entrer le prénom" />
+            <span class="error">Le prénom est obligatoire.</span>
+          </div>
+
+          <div class="field">
+            <label for="age">Âge</label>
+            <input type="number" id="txtage" name="age" placeholder="Entrer l'âge" />
+            <span class="error">Veuillez saisir un âge valide.</span>
+          </div>
+
+          <div class="field">
+            <label for="txtnoteEFF">Note EFF</label>
+            <input type="number" id="txtnoteEFF" name="note" placeholder="Entrer la note" />
+            <span class="error">Veuillez saisir une note valide.</span>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="btn_ajouter" class="btn btn-primary">Ajouter Stagiaire</button>
+          <button type="button" id="btn_modifier" class="btn btn-secondary">Modifier</button>
+        </div>
+      </form>
+      
+      
+      
+      <div class="table-wrapper">
+        <table id="table_stagiaires">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nom</th>
+              <th>Prénom</th>
+              <th>Âge</th>
+              <th>Note EFF</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="tdata">
+
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4"><strong>Meilleures notes</strong></td>
+              <td>
+                <strong id="txtNoteMax">...</strong> <br />
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
+
+
+
+

@@ -21,7 +21,7 @@ let stagiaires = [
                         {id:2, libelle:"HTML", cc1:13, cc2:13, cc3:14, EFM:26 }
                         ], noteCC: 17, noteEFF : 14},
 ]
-
+let filteredStg;
 const table_stagiaires = objSelect("table_stagiaires")
 const oId = objSelect("txtid"); 
 const oNom = objSelect("txtnom"); 
@@ -34,6 +34,7 @@ const oCc3 = objSelect("txtcc3");
 const oEfm = objSelect("txtefm");
 const oNoteEFF = objSelect("txtnoteEFF");
 const oNoteCC = objSelect("txtnoteCC");
+const oSearch = objSelect("txtChercher")
 // Fonction pour cibler un element DOM avec son ID
 function objSelect(idobj){
     return document.getElementById(idobj); 
@@ -43,6 +44,7 @@ function objSelect(idobj){
 document.addEventListener("DOMContentLoaded",afficher);
 document.getElementById("btn_ajouter").addEventListener("click", ajouter_stagiaire)
 document.getElementById("btn_modifier").addEventListener("click", modifier_stagiaire)
+document.getElementById("btn_chercher").addEventListener("click", chercher)
 
 // Functions
 function ajouter_stagiaire(){
@@ -196,7 +198,7 @@ function validation(){
         oPrenom.nextElementSibling.style.display = "block";
         isValid = false
     }
-    if(oAge.value < 16 || oAge.value > 30){
+    if(Number(oAge.value) < 16 || Number(oAge.value > 30)){
         oAge.nextElementSibling.style.display = "block";
         isValid = false
     }
@@ -219,5 +221,27 @@ function hideErrors (){
     oNom.nextElementSibling.style.display = "none";
     oPrenom.nextElementSibling.style.display = "none";
     oAge.nextElementSibling.style.display = "none";
+}
+// Chercher
+function chercher(){
+    filteredStg = stagiaires.filter((item)=>{
+        return item.id == oSearch.value || item.nom == oSearch.value || item.prenom == oSearch.value
+    })
+    afficherRecherche()
+}
+
+function afficherRecherche(){
+    let content = "";
+    for(let i=0;i < filteredStg.length;i++){
+        let noteG = filteredStg[i].noteEFF * 0.6 + filteredStg[i].noteCC * 0.4
+        let groupe = filteredStg[i].id.substring(0,6)
+        content += `<tr>
+                        <td>${filteredStg[i].nom}</td>
+                        <td>${filteredStg[i].prenom}</td>
+                        <td>${groupe}</td>
+                        <td>${noteG}</td>
+                    </tr>`
+    }
+    objSelect("tdataS").innerHTML = content
 }
 

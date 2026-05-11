@@ -205,4 +205,10 @@
       border: 1px solid #e5e7eb;
     }
 
+.decision-success{
+  color: blue;
+}
+.decision-redoublant{
+  color: red;
+}
   

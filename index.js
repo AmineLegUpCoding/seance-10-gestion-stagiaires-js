@@ -235,11 +235,22 @@ function afficherRecherche(){
     for(let i=0;i < filteredStg.length;i++){
         let noteG = filteredStg[i].noteEFF * 0.6 + filteredStg[i].noteCC * 0.4
         let groupe = filteredStg[i].id.substring(0,6)
+        let decision = ""; 
+        let couleurDec = "";
+        if(noteG >= 10){
+            decision = "Admis";
+            couleurDec = "decision-success";
+        }else{
+            decision = "Redoublant";
+            couleurDec = "decision-redoublant";
+        }
+
         content += `<tr>
                         <td>${filteredStg[i].nom}</td>
                         <td>${filteredStg[i].prenom}</td>
                         <td>${groupe}</td>
                         <td>${noteG}</td>
+                        <td class="${couleurDec}">${decision}</td>
                     </tr>`
     }
     objSelect("tdataS").innerHTML = content

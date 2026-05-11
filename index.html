@@ -13,10 +13,10 @@
       <h2>Formulaire d’ajout</h2>
 
       <form>
-        <div class="form-row">
+        <div class="form-row">          
           <div class="field">
             <label for="id">ID</label>
-            <input type="number" id="txtid" name="id" placeholder="Entrer l'identifiant" />
+            <input type="text" id="txtid" name="id" placeholder="DD-101-001" />
             <span class="error">Veuillez saisir un identifiant valide.</span>
           </div>
 
@@ -43,6 +43,11 @@
             <input type="number" id="txtnoteEFF" name="note" placeholder="Entrer la note" />
             <span class="error">Veuillez saisir une note valide.</span>
           </div>
+          <div class="field">
+            <label for="txtnoteCC">Note CC</label>
+            <input type="number" id="txtnoteCC" name="txtnoteCC" placeholder="Entrer la note des CC" />
+            <span class="error">Veuillez saisir une note valide.</span>
+          </div>
         </div>
 
         <div class="actions">
@@ -62,15 +67,17 @@
               <th>Prénom</th>
               <th>Âge</th>
               <th>Note EFF</th>
+              <th>Note CC</th>
+              <th>Note Globale</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody id="tdata">
-
+             <!-- Là ou les les seront ajoutés-->
           </tbody>
           <tfoot>
             <tr>
-              <td colspan="4"><strong>Meilleures notes</strong></td>
+              <td colspan="4"><strong>Meilleures note EFF</strong></td>
               <td>
                 <strong id="txtNoteMax">...</strong> <br />
               </td>
@@ -82,7 +89,3 @@
   <script src="index.js"></script>
 </body>
 </html>
-
-
-
-
